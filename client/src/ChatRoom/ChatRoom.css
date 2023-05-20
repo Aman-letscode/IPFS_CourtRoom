@@ -1,0 +1,119 @@
+.chat-room-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 16px;
+}
+
+.room-name {
+    margin-top: 0;
+}
+
+.messages-container {
+    flex: 1;
+    min-height: 100px;
+    overflow: auto;
+    border: 1px solid black;
+    border-radius: 7px 7px 0 0;
+}
+
+.messages-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2%;
+}
+
+.new-message-input-field {
+    width: 800px;
+    height: 40px;
+    max-height: max-content;
+    font-size: 20px;
+    padding: 8px 12px;
+    resize: none;
+}
+
+.message-item {
+    width: 55%;
+    margin: 8px;
+    padding: 12px 8px;
+    word-break: break-word;
+    border-radius: 4px;
+    /* color: white; */
+}
+
+.my-message {
+    background-color: rgb(0, 132, 255);
+    margin-left: auto;
+    color: #ffffff;
+}
+
+.received-message {
+    background-color: #f49200;
+    margin-right: auto;
+    color: #ffffff;
+}
+
+.me {
+    background-color: rgb(255, 255, 255);
+    margin-left: auto;
+}
+
+.other-user {
+    background-color: #ffffff;
+    margin-right: auto;
+}
+
+.send-message-button {
+    position: relative;
+    /* top: 80%;  */
+    left: 1%; 
+    /* transform: translateY(-50%);  */
+    
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    background: #31a24c;
+    width: 100px;
+    padding: 6px 3px;
+    border: none;
+    border-radius: 8px;    
+}
+
+.file-input{
+    /* display: grid; */
+    width: 5;
+    margin-right: 1%;
+    /* width: ; */
+    height: 50%;
+    max-height: min-content;
+    color: white;
+    background: #31a24c;
+    border: none;
+    border-radius: 8px;  
+}
+
+
+.messages-container, .new-message-input-field, .send-message-button {
+    right: 2%;
+    border-color: #9a9a9a;
+    height: min-content;
+}
+
+.sender-item{
+    /* background-color: none; */
+    width: 55%;
+    margin: 8px;
+    padding: 12px 8px;
+    word-break: break-word;
+    border-radius: 4px;
+    color: black;
+}

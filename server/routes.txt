@@ -1,0 +1,15 @@
+Routes
+
+home_link = /api/
+
+user link : /user/
+
+1. register = /register/  (POST)
+2. login = /login/ (GET, Post)
+3. dashboard = /dashboard/
+
+
+courtroom : /:roomId/
+
+1. for socket: /
+2. upload file : /upload/
