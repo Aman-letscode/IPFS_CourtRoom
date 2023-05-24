@@ -1,5 +1,13 @@
 .login-body{
     display: flex;
     justify-content: center;
-    margin: 3em;
 }
+
+.homepage-bgimage {
+    background: url("../Images/image2.webp");
+    padding: 3em;
+    height: 95vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
