@@ -1,45 +1,37 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
+import React, { useState, useEffect } from 'react'
+import Case from '../Components/Case'
+import './Home.css'
+import axios from 'axios'
+import LoadingPage from '../Components/LoadingPage'
+function Dashboard() {
+    if(!localStorage.getItem('User')) window.location='/'
+    const url="http://localhost:4000/api/case/"+localStorage.getItem('User');
+    const [data, setData] = useState([]);
+    const [isLoading,setIsLoading]=useState(true);
 
-import "./Home.css";
+  useEffect(
+    axios.get(url).then((res) => { 
+      setData(res.data)
+      // setIsLoading(false)
+    }
+      ),[]);
 
-const Home = () => {
-  const [roomName, setRoomName] = React.useState("");
-
-  const handleRoomNameChange = (event) => {
-    setRoomName(event.target.value);
-    console.log(roomName);
-  };
-  const handleSubmit = (e) =>{
-    e.preventDefault();
-    
-    localStorage.setItem('roomId',roomName);
-    window.location = "/"+roomName
-  }
-
+  console.log(data.caseIds);
   return (
-    <div className="home-container">
-      <input
-        type="text"
-        value={roomName}
-        onChange={handleRoomNameChange}
-        placeholder="Room"
-        className="text-input-field"
-      />
-      {/* <Link to={`/${roomName}`} className="enter-room-button">
-        Join room
-      </Link> */}
-      {/* <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Submit
-      </Button> */}
-      <button onClick={handleSubmit} className="send-message-button">
-        Send
-      </button>
+    <>
+    {isLoading?<LoadingPage/>:<>
+    <div className='case-area'>
+
+    { Array.isArray(data.caseIds)?data.caseIds.map((dataObj, index) => {
+          return (
+        
+              <Case data={dataObj}></Case>
+           
+          )
+        }):null}
     </div>
-  );
-};
+    </>}</>
+  )
+}
 
-export default Home;
-
-
+export default Dashboard
