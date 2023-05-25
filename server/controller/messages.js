@@ -1,5 +1,5 @@
 //Importing the models
-const messages = require("./models/message");
+const messages = require("../models/message");
 const CircularJSON = require("circular-json");
 
 module.exports.insertMessage = (data) => {

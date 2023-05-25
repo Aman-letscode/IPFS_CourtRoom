@@ -6,7 +6,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
-
+const http = require('http')
+const server = http.createServer(app);
 //User-defined function
 const routes = require("./routes/routes");
 const connect = require("./config/dbconnect");
