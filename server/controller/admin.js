@@ -16,18 +16,32 @@ class Admin{
 
     }
     static addCase = async (req,res) =>{
-        if(!res.body) return res.json({"status":"failed","error":"No Data found"});
-        try{
+        // if(!res.body) return res.json({"status":"failed","error":"No Data found"});
+        console.log(req.body);
+        // try{
+            
+            // const {CaseNo,judge,lawyer1,lawyer2} = req.body;
+            const CaseNo = req.body.CaseNo;
+            const judge = req.body.judge;
+            const lawyer1 = req.body.lawyer1;
+            const lawyer2 = req.body.lawyer2;
+            const desc = req.body.desc;
 
-            const {CaseNo,judge,lawyer1,lawyer2} = req.body;
+
+console.log([CaseNo,judge,lawyer1,lawyer2])
             const RegisterCase = new Case({
                 case_id: CaseNo,
-                user_id: [judge,lawyer1,lawyer2],
+                judge_id: judge,
+                laywer1: lawyer1,
+                laywer2: lawyer2,
+                users: [lawyer1,lawyer2,judge],
                 status: 'active',
+                caseDescription: desc
             })
-            await RegisterCase.save();
-            const saved = await User.findOne({ case_id: CaseNo });
 
+            await RegisterCase.save();
+            const saved = await Case.findOne({ case_id: CaseNo });
+            // console.log(saved.case_id)
             if (saved) {
               res.json({
                 status: "success",
@@ -40,9 +54,9 @@ class Admin{
               });
             }
             
-        }catch(e){
-            res.json({"status":"failed","error":e});    
-        }
+        // }catch(e){
+        //     res.json({"status":"failed","message":"Error:","error":e});    
+        // }
 
     
     } 

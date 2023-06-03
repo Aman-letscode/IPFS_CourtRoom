@@ -28,7 +28,11 @@ const msgSchema = new mongoose.Schema({
         required: true,
         default: "A",
     },
-    
+    time:{
+        type: String,
+        required:true,
+        default: "01/01/2024, 00:00:00 AM"
+    },
     role:{
         type: String,
         required: false,

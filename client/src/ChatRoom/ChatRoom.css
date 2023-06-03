@@ -29,11 +29,12 @@
 .input-container{
     display: flex;
     flex-direction: row;
+    width: 100%;
     margin-top: 2%;
 }
 
 .new-message-input-field {
-    width: 800px;
+    width: 80%;
     height: 40px;
     max-height: max-content;
     font-size: 20px;
@@ -117,3 +118,8 @@
     border-radius: 4px;
     color: black;
 }
+
+.header{
+    display: flex;
+}
+

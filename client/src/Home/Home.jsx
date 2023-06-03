@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Case from '../Components/Case'
 import './Home.css'
 import axios from 'axios'
-import LoadingPage from '../Components/LoadingPage'
+// import LoadingPage from '../Components/LoadingPage'
 function Dashboard() {
     if(!localStorage.getItem('User')) window.location='/'
     const url="http://localhost:4000/api/case/"+localStorage.getItem('User');
@@ -19,7 +19,8 @@ function Dashboard() {
   console.log(data.caseIds);
   return (
     <>
-    {isLoading?<LoadingPage/>:<>
+    {/* {isLoading?<LoadingPage/>: */}
+    {/* <> */}
     <div className='case-area'>
 
     { Array.isArray(data.caseIds)?data.caseIds.map((dataObj, index) => {
@@ -30,7 +31,8 @@ function Dashboard() {
           )
         }):null}
     </div>
-    </>}</>
+    {/* </>} */}
+    </>
   )
 }
 

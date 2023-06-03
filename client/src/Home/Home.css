@@ -31,5 +31,18 @@
 }
 
 .case-area{
+    display: flex;
     margin: 2em;
+    flex-wrap: wrap;
+}
+
+
+.active{
+    font-size: large;
+    color:#049e3a;
+}
+
+.closed{
+    font-size: large;
+    color:red;
 }

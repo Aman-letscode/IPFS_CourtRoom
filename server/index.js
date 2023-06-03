@@ -49,10 +49,15 @@ io.on("connection", (socket) => {
 
   // Listen for new messages
   socket.on(NEW_CHAT_MESSAGE_EVENT, (data) => {
-    const cond = insertMessage(data);//adding message to database
 
+
+    const cond = insertMessage(data);//adding message to database
+    
     console.log(data, " Sent");
     if (cond) {
+      data = Object.assign(data,{
+        time:cond.time
+      });
       console.log(data, " Sent");
     } else {
       console.log(data, " not sent");

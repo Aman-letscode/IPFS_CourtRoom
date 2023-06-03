@@ -32,15 +32,15 @@ class Register {
           try {
 
             //Generating a hash
-            const salt = await bcrypt.genSalt(10);
-            const hash_password = await bcrypt.hash(password, salt);
+            // const salt = await bcrypt.genSalt(10);
+            // const hash_password = await bcrypt.hash(password, salt);
 
             //Building a model document of user
             const doc = new User({
               firstname: firstname,
               lastname: lastname,
               user_id: userId,
-              password: hash_password,
+              password: password,
               role: role, 
             });
 
@@ -98,7 +98,8 @@ class Register {
             status: "success",
             message: "Login Successful",
 
-            user_id: user.user_id
+            user_id: user.user_id,
+            role: user.role
 
           });
         } else {

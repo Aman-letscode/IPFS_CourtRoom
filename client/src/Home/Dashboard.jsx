@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import Case from '../Components/Case'
 import './Home.css'
 import axios from 'axios'
+
+
+
 function Dashboard() {
     if(!localStorage.getItem('User')) window.location='/'
     const url="http://localhost:4000/api/case/"+localStorage.getItem('User');

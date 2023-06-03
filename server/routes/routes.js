@@ -26,6 +26,29 @@ router.get("/",(req,res)=>{
 //For posting judge and lawyer list as response
 router.get("/addCase",admin.PostData);
 
+//For all cases
+router.get("/case", async (req,res)=>{
+  try{
+  // Find the user by their ID
+  
+  // If the user doesn't exist, return an error
+
+  // Retrieve the cases associated with the user
+  const cases = await Case.find();
+  console.log(cases);
+  // Extract the case IDs from the cases
+  const caseIds = cases.map((c) => c);
+
+  // Return the case IDs
+  res.json(cases);
+} catch (err) {
+  console.error("Error retrieving case IDs:", err);
+  res.status(500).json({ error: "Internal server error" });
+}
+
+});
+
+
 //For posting case list according to user
 router.get("/case/:userId", async (req, res) => {
     try {
@@ -70,8 +93,18 @@ router.get("/messages/:caseId",async (req, res) => {
       // Retrieve the messages associated with the case
       const messages = await Messages.find({ case_id: caseId });
       // Extract the case IDs from the cases
-      const allmessages = messages.map((c) => c);
+      // const allmessages = messages.map((c) =>{
+      //   console.log(c);
+      //   return c;
+      // });
+
+
+      const allmessages = messages.map((c) => {
+        c["time"] = new Date(c._id.getTimestamp()).toLocaleString("en-US");
+        return c;
+      } );
   
+      // console.log(allmessages)
       // Return the messages
       return res.json({ allmessages });
     } catch (err) {
@@ -83,6 +116,8 @@ router.get("/messages/:caseId",async (req, res) => {
 
 //Post Request:
 
+
+router.post("/register",register.register);
 //For Login: req.body -> user_id, password
 router.post("/login",register.login);
  

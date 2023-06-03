@@ -4,6 +4,7 @@
 }
 
 .homepage-bgimage {
+    /* background: url("../Images/images.jpg"); */
     background: url("../Images/image2.webp");
     padding: 3em;
     height: 95vh;
