@@ -3,12 +3,7 @@ const messages = require("../models/message");
 
 
 
-function getResult() {
-  return new Promise((resolve, reject) => {
-    // Do something asynchronous here
-    resolve("The result");
-  });
-}
+
 
 const insertMessage = (data) => {
   console.log(data);
